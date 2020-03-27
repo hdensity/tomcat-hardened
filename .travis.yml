@@ -1,0 +1,61 @@
+language: bash
+
+sudo: false
+
+services:
+  - docker
+
+dist: xenial
+
+addons:
+  snaps:
+    - name: node
+      confinement: classic
+      channel: "12"
+
+env:
+  - VERSION=9.0.33 TAG=jdk14-openjdk-oracle VARIANT=yum
+  - VERSION=9.0.33 TAG=jdk14-openjdk-buster VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk14-openjdk-slim-buster VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk11-openjdk,jdk11 VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk11-openjdk-slim VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk11-corretto VARIANT=yum
+  - VERSION=9.0.33 TAG=jdk8-openjdk,jdk8 VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk8-openjdk-slim VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt
+  - VERSION=9.0.33 TAG=jdk8-corretto VARIANT=yum
+
+  - VERSION=8.5.53 TAG=jdk14-openjdk-oracle VARIANT=yum
+  - VERSION=8.5.53 TAG=jdk14-openjdk-buster VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk14-openjdk-slim-buster VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk11-openjdk,jdk11 VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk11-openjdk-slim VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk11-corretto VARIANT=yum
+  - VERSION=8.5.53 TAG=jdk8-openjdk,jdk8 VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk8-openjdk-slim VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt
+  - VERSION=8.5.53 TAG=jdk8-corretto VARIANT=yum
+
+  - UPDATE_DOC=true
+
+before_script:
+  - env | sort
+
+script:
+  - |
+    (
+      if [[ "$UPDATE_DOC" ]]; then
+        npm install
+        node update_desc.js
+      elif [[ "$VERSION" == "9.0.33" && "$TAG" == "jdk11-openjdk,jdk11" || "$VERSION" == "8.5.53" && "$TAG" == "jdk8-openjdk,jdk8" ]]; then
+        ./docker.sh $VERSION $TAG $VARIANT true
+      else
+        ./docker.sh $VERSION $TAG $VARIANT
+      fi
+    )
