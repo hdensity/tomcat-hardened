@@ -5,14 +5,6 @@ sudo: false
 services:
   - docker
 
-dist: xenial
-
-addons:
-  snaps:
-    - name: node
-      confinement: classic
-      channel: "12"
-
 env:
   - VERSION=9.0.33 TAG=jdk14-openjdk-oracle VARIANT=yum
   - VERSION=9.0.33 TAG=jdk14-openjdk-buster VARIANT=apt
@@ -42,20 +34,21 @@ env:
   - VERSION=8.5.53 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt
   - VERSION=8.5.53 TAG=jdk8-corretto VARIANT=yum
 
-  - UPDATE_DOC=true
+install:
+  - git clone https://github.com/docker-library/official-images.git ~/official-images
 
 before_script:
-  - env | sort
+  - imagetag="$(echo $TAG | cut -d "," -f 1)"
+  - image="samschmit/tomcat-hardened:$VERSION-$imagetag"
 
 script:
   - |
     (
-      if [[ "$UPDATE_DOC" ]]; then
-        npm install
-        node update_desc.js
-      elif [[ "$VERSION" == "9.0.33" && "$TAG" == "jdk11-openjdk,jdk11" || "$VERSION" == "8.5.53" && "$TAG" == "jdk8-openjdk,jdk8" ]]; then
+      if [[ "$VERSION" == "9.0.33" && "$TAG" == "jdk11-openjdk,jdk11" || "$VERSION" == "8.5.53" && "$TAG" == "jdk8-openjdk,jdk8" ]]; then
         ./docker.sh $VERSION $TAG $VARIANT true
       else
         ./docker.sh $VERSION $TAG $VARIANT
       fi
+
+      ~/official-images/test/run.sh "$image"
     )
