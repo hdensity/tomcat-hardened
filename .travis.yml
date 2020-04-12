@@ -6,49 +6,49 @@ services:
   - docker
 
 env:
-  - VERSION=9.0.33 TAG=jdk14-openjdk-oracle VARIANT=yum
-  - VERSION=9.0.33 TAG=jdk14-openjdk-buster VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk14-openjdk-slim-buster VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk11-openjdk,jdk11 VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk11-openjdk-slim VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk11-corretto VARIANT=yum
-  - VERSION=9.0.33 TAG=jdk8-openjdk,jdk8 VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk8-openjdk-slim VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt
-  - VERSION=9.0.33 TAG=jdk8-corretto VARIANT=yum
+  - VERSION=9.0.34 TAG=jdk14-openjdk-oracle VARIANT=yum INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk14-openjdk-buster VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk14-openjdk-slim-buster VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk11-openjdk,jdk11 VARIANT=apt INCLUDE_VERSION=true
+  - VERSION=9.0.34 TAG=jdk11-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk11-corretto VARIANT=yum INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk8-openjdk,jdk8 VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk8-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk8-corretto VARIANT=yum INCLUDE_VERSION=false
 
-  - VERSION=8.5.53 TAG=jdk14-openjdk-oracle VARIANT=yum
-  - VERSION=8.5.53 TAG=jdk14-openjdk-buster VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk14-openjdk-slim-buster VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk11-openjdk,jdk11 VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk11-openjdk-slim VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk11-corretto VARIANT=yum
-  - VERSION=8.5.53 TAG=jdk8-openjdk,jdk8 VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk8-openjdk-slim VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt
-  - VERSION=8.5.53 TAG=jdk8-corretto VARIANT=yum
+  - VERSION=8.5.54 TAG=jdk14-openjdk-oracle VARIANT=yum INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk14-openjdk-buster VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk14-openjdk-slim-buster VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk11-openjdk,jdk11 VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk11-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk11-corretto VARIANT=yum INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk8-openjdk,jdk8 VARIANT=apt INCLUDE_VERSION=true
+  - VERSION=8.5.54 TAG=jdk8-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk8-corretto VARIANT=yum INCLUDE_VERSION=false
+
+  - VERSION=7.0.103 TAG=jdk8-openjdk,jdk8 VARIANT=apt INCLUDE_VERSION=true
+  - VERSION=7.0.103 TAG=jdk8-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
+  - VERSION=7.0.103 TAG=jdk8-corretto VARIANT=yum INCLUDE_VERSION=false
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
 
 before_script:
-  - imagetag="$(echo $TAG | cut -d "," -f 1)"
-  - image="samschmit/tomcat-hardened:$VERSION-$imagetag"
+  - image="samschmit/tomcat-hardened:$VERSION-$(echo $TAG | cut -d "," -f 1)"
 
 script:
   - |
     (
-      if [[ "$VERSION" == "9.0.33" && "$TAG" == "jdk11-openjdk,jdk11" || "$VERSION" == "8.5.53" && "$TAG" == "jdk8-openjdk,jdk8" ]]; then
-        ./docker.sh $VERSION $TAG $VARIANT true
-      else
-        ./docker.sh $VERSION $TAG $VARIANT
-      fi
-
+      ./docker.sh $VERSION $TAG $VARIANT $INCLUDE_VERSION
       ~/official-images/test/run.sh "$image"
     )
