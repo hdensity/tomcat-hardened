@@ -1,12 +1,10 @@
-FROM tomcat:#BASE#
+FROM tomcat:#TOMCAT_BASE#
 
 ARG VERSION
 ENV GOSU_VERSION 1.11
 
-# Maintenance and installation of GOSU
 RUN set -eux; \
-# save list of currently installed packages for later so we can clean up
-	savedAptMark="$(apt-mark showmanual)"; \
+# install GOSU installation dependencies
 	apt-get update; \
 	apt-get install -y --no-install-recommends ca-certificates wget; \
 	if ! command -v gpg; then \
@@ -15,7 +13,6 @@ RUN set -eux; \
 # "This package provides support for HKPS keyservers." (GnuPG 1.x only)
 		apt-get install -y --no-install-recommends gnupg-curl; \
 	fi; \
-	rm -rf /var/lib/apt/lists/*; \
 	\
 	dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')"; \
 	wget --retry-connrefused --waitretry=1 -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch"; \
@@ -26,21 +23,14 @@ RUN set -eux; \
 	gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4; \
 	gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu; \
 	command -v gpgconf && gpgconf --kill all || :; \
-	rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc; \
-	\
-# clean up fetch dependencies
-	apt-mark auto '.*' > /dev/null; \
-	[ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; \
-	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	\
 	chmod +x /usr/local/bin/gosu; \
 # verify that the binary works
 	gosu --version; \
 	gosu nobody true; \
 	\
-# Eliminate default web applications
-    rm -rf ${CATALINA_HOME}/webapps.dist; \
-    rm -rf ${CATALINA_HOME}/conf/Catalina; \
+# Remove default web apps
+    rm -rf /usr/local/tomcat/webapps.dist; \
     \
 # Obscuring server info
     cd ${CATALINA_HOME}/lib; \
@@ -53,6 +43,41 @@ RUN set -eux; \
 # Security enhanced xml files
 COPY $VERSION/web.xml ${CATALINA_HOME}/conf/
 COPY $VERSION/server.xml ${CATALINA_HOME}/conf/
+
+
+FROM #JAVA_BASE#
+
+COPY --from=0 /usr/local/bin/gosu /usr/local/bin/gosu
+COPY --from=0 /usr/lib/x86_64-linux-gnu/libapr* /usr/lib/x86_64-linux-gnu/
+COPY --from=0 /usr/local/tomcat /usr/local/tomcat
+
+ENV CATALINA_HOME /usr/local/tomcat
+ENV PATH $CATALINA_HOME/bin:$PATH
+WORKDIR $CATALINA_HOME
+
+# let "Tomcat Native" live somewhere isolated
+ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
+ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
+
+# Maintenance and verification
+RUN set -eux; \
+# usual maintenance
+	apt-get update; \
+	apt-get upgrade -y; \
+	rm -rf /var/lib/apt/lists/*; \
+	\
+# verify that GOSU works
+	gosu --version; \
+	gosu nobody true; \
+	\
+# verify Tomcat Native is working properly
+	nativeLines="$(catalina.sh configtest 2>&1)"; \
+	nativeLines="$(echo "$nativeLines" | grep 'Apache Tomcat Native')"; \
+	nativeLines="$(echo "$nativeLines" | sort -u)"; \
+	if ! echo "$nativeLines" | grep 'INFO: Loaded APR based Apache Tomcat Native library' >&2; then \
+		echo >&2 "$nativeLines"; \
+		exit 1; \
+	fi
 
 # Tomcat start script
 COPY start-tomcat.sh ${CATALINA_HOME}/bin
