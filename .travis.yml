@@ -6,39 +6,39 @@ services:
   - docker
 
 env:
-  - VERSION=9.0.34 TAG=jdk14-openjdk-oracle VARIANT=yum INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk14-openjdk-buster VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk14-openjdk-slim-buster VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk11-openjdk,jdk11 VARIANT=apt INCLUDE_VERSION=true
-  - VERSION=9.0.34 TAG=jdk11-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk11-corretto VARIANT=yum INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk8-openjdk,jdk8 VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk8-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=9.0.34 TAG=jdk8-corretto VARIANT=yum INCLUDE_VERSION=false
+  - VERSION=9.0.34 TAG=jdk14-openjdk-oracle VARIANT=yum VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk14-openjdk-buster VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk14-openjdk-slim-buster VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk11-openjdk,jdk11 VARIANT=apt VERSION_ONLY_TAG=true VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk11-openjdk-slim VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk11-corretto VARIANT=yum VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk8-openjdk,jdk8 VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk8-openjdk-slim VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=9.0.34 TAG=jdk8-corretto VARIANT=yum VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
 
-  - VERSION=8.5.54 TAG=jdk14-openjdk-oracle VARIANT=yum INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk14-openjdk-buster VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk14-openjdk-slim-buster VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk11-openjdk,jdk11 VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk11-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk11-corretto VARIANT=yum INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk8-openjdk,jdk8 VARIANT=apt INCLUDE_VERSION=true
-  - VERSION=8.5.54 TAG=jdk8-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=8.5.54 TAG=jdk8-corretto VARIANT=yum INCLUDE_VERSION=false
+  - VERSION=8.5.54 TAG=jdk14-openjdk-oracle VARIANT=yum VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk14-openjdk-buster VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk14-openjdk-slim-buster VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk11-openjdk,jdk11 VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk11-openjdk-slim VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk11-adoptopenjdk-hotspot VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk11-adoptopenjdk-openj9 VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk11-corretto VARIANT=yum VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk8-openjdk,jdk8 VARIANT=apt VERSION_ONLY_TAG=true VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk8-openjdk-slim VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
+  - VERSION=8.5.54 TAG=jdk8-corretto VARIANT=yum VERSION_ONLY_TAG=false VERSIONLESS_TAG=true
 
-  - VERSION=7.0.103 TAG=jdk8-openjdk,jdk8 VARIANT=apt INCLUDE_VERSION=true
-  - VERSION=7.0.103 TAG=jdk8-openjdk-slim VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt INCLUDE_VERSION=false
-  - VERSION=7.0.103 TAG=jdk8-corretto VARIANT=yum INCLUDE_VERSION=false
+  - VERSION=7.0.103 TAG=jdk8-openjdk,jdk8 VARIANT=apt VERSION_ONLY_TAG=true VERSIONLESS_TAG=false
+  - VERSION=7.0.103 TAG=jdk8-openjdk-slim VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-hotspot VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-openj9 VARIANT=apt VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
+  - VERSION=7.0.103 TAG=jdk8-corretto VARIANT=yum VERSION_ONLY_TAG=false VERSIONLESS_TAG=false
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
@@ -49,6 +49,6 @@ before_script:
 script:
   - |
     (
-      ./docker.sh $VERSION $TAG $VARIANT $INCLUDE_VERSION
+      ./docker.sh $VERSION $TAG $VARIANT $VERSION_ONLY_TAG $VERSIONLESS_TAG
       ~/official-images/test/run.sh "$image"
     )

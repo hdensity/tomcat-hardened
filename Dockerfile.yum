@@ -1,5 +1,6 @@
 FROM tomcat:#BASE#
 
+ARG VERSION
 ENV GOSU_VERSION 1.11
 
 # Usual maintenance
@@ -15,8 +16,8 @@ RUN set -ex; \
     rm -rf /var/cache/yum /tmp/* /var/tmp/*; \
     \
     # Install GOSU (see https://github.com/tianon/gosu/blob/master/INSTALL.md)
-    wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-amd64"; \
-    wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-amd64.asc"; \
+    wget --retry-connrefused --waitretry=1 -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-amd64"; \
+    wget --retry-connrefused --waitretry=1 -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-amd64.asc"; \
     \
     # verify the signature
     export GNUPGHOME="$(mktemp -d)"; \
@@ -36,25 +37,23 @@ RUN set -ex; \
     # verify that the binary works
     gosu nobody true; \
     \
-    yum remove -y $fetchDeps;
-
+    yum remove -y $fetchDeps; \
+    \
 # Eliminate default web applications
-RUN rm -rf ${CATALINA_HOME}/webapps/* && \
-    rm -rf ${CATALINA_HOME}/server/webapps/* && \
-    rm -rf ${CATALINA_HOME}/conf/Catalina/localhost/host-manager.xml && \
-    rm -rf ${CATALINA_HOME}/conf/Catalina/localhost/manager.xml
-
+    rm -rf ${CATALINA_HOME}/webapps.dist; \
+    rm -rf ${CATALINA_HOME}/conf/Catalina; \
+    \
 # Obscuring server info
-RUN cd ${CATALINA_HOME}/lib && \
-    mkdir -p org/apache/catalina/util/ && \
-    jar xf catalina.jar org/apache/catalina/util/ServerInfo.properties && \
-    sed -i 's/server.info=.*/server.info=Apache Tomcat/g' org/apache/catalina/util/ServerInfo.properties && \
-    jar uf catalina.jar org/apache/catalina/util/ServerInfo.properties && \
-    rm -rf org
+    cd ${CATALINA_HOME}/lib; \
+    mkdir -p org/apache/catalina/util/; \
+    jar xf catalina.jar org/apache/catalina/util/ServerInfo.properties; \
+    sed -i 's/server.info=.*/server.info=Apache Tomcat/g' org/apache/catalina/util/ServerInfo.properties; \
+    jar uf catalina.jar org/apache/catalina/util/ServerInfo.properties; \
+    rm -rf org;
 
 # Security enhanced xml files
-COPY web.xml ${CATALINA_HOME}/conf/
-COPY server.xml ${CATALINA_HOME}/conf/
+COPY $VERSION/web.xml ${CATALINA_HOME}/conf/
+COPY $VERSION/server.xml ${CATALINA_HOME}/conf/
 
 # Tomcat start script
 COPY start-tomcat.sh ${CATALINA_HOME}/bin
