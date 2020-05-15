@@ -1,7 +1,7 @@
 FROM tomcat:#TOMCAT_BASE#
 
 ARG VERSION
-ENV GOSU_VERSION 1.11
+ENV GOSU_VERSION 1.12
 
 RUN set -eux; \
 # install GOSU installation dependencies
@@ -48,7 +48,6 @@ COPY $VERSION/server.xml ${CATALINA_HOME}/conf/
 FROM #JAVA_BASE#
 
 COPY --from=0 /usr/local/bin/gosu /usr/local/bin/gosu
-COPY --from=0 /usr/lib/x86_64-linux-gnu/libapr* /usr/lib/x86_64-linux-gnu/
 COPY --from=0 /usr/local/tomcat /usr/local/tomcat
 
 ENV CATALINA_HOME /usr/local/tomcat
@@ -64,6 +63,7 @@ RUN set -eux; \
 # usual maintenance
 	apt-get update; \
 	apt-get upgrade -y; \
+	apt-get install -y libapr1; \
 	rm -rf /var/lib/apt/lists/*; \
 	\
 # verify that GOSU works
@@ -74,7 +74,7 @@ RUN set -eux; \
 	nativeLines="$(catalina.sh configtest 2>&1)"; \
 	nativeLines="$(echo "$nativeLines" | grep 'Apache Tomcat Native')"; \
 	nativeLines="$(echo "$nativeLines" | sort -u)"; \
-	if ! echo "$nativeLines" | grep 'INFO: Loaded APR based Apache Tomcat Native library' >&2; then \
+	if ! echo "$nativeLines" | grep -E 'INFO: Loaded( APR based)? Apache Tomcat Native library' >&2; then \
 		echo >&2 "$nativeLines"; \
 		exit 1; \
 	fi
