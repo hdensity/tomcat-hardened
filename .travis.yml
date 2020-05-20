@@ -52,16 +52,16 @@ env:
   - VERSION=8.5.55 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jre-hotspot  TAGS=jre8-adoptopenjdk-hotspot
   - VERSION=8.5.55 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jre-openj9   TAGS=jre8-adoptopenjdk-openj9
 
-  - VERSION=7.0.103 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jdk              TAGS=jdk8-openjdk,jdk8           VERSION_ONLY_TAG=true
-  - VERSION=7.0.103 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jdk-slim         TAGS=jdk8-openjdk-slim,jdk8-slim
-  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jdk-hotspot TAGS=jdk8-adoptopenjdk-hotspot
-  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jdk-openj9  TAGS=jdk8-adoptopenjdk-openj9
-  - VERSION=7.0.103 TAG=jdk8-corretto             JAVA_BASE=amazoncorretto:8           TAGS=jdk8-corretto               VARIANT=yum
+  - VERSION=7.0.104 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jdk              TAGS=jdk8-openjdk,jdk8           VERSION_ONLY_TAG=true
+  - VERSION=7.0.104 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jdk-slim         TAGS=jdk8-openjdk-slim,jdk8-slim
+  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jdk-hotspot TAGS=jdk8-adoptopenjdk-hotspot
+  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jdk-openj9  TAGS=jdk8-adoptopenjdk-openj9
+  - VERSION=7.0.104 TAG=jdk8-corretto             JAVA_BASE=amazoncorretto:8           TAGS=jdk8-corretto               VARIANT=yum
 
-  - VERSION=7.0.103 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jre              TAGS=jre8-openjdk,jre8
-  - VERSION=7.0.103 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jre-slim         TAGS=jre8-openjdk-slim,jre8-slim
-  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jre-hotspot TAGS=jre8-adoptopenjdk-hotspot
-  - VERSION=7.0.103 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jre-openj9  TAGS=jre8-adoptopenjdk-openj9
+  - VERSION=7.0.104 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jre              TAGS=jre8-openjdk,jre8
+  - VERSION=7.0.104 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jre-slim         TAGS=jre8-openjdk-slim,jre8-slim
+  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jre-hotspot TAGS=jre8-adoptopenjdk-hotspot
+  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jre-openj9  TAGS=jre8-adoptopenjdk-openj9
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
