@@ -6,62 +6,62 @@ services:
   - docker
 
 env:
-  - VERSION=9.0.36 TAG=jdk14-openjdk-oracle       JAVA_BASE=openjdk:14-jdk-oracle       TAGS=jdk14-openjdk-oracle          VARIANT=yum
-  - VERSION=9.0.36 TAG=jdk14-openjdk-buster       JAVA_BASE=openjdk:14-jdk-buster       TAGS=jdk14-openjdk-buster
-  - VERSION=9.0.36 TAG=jdk14-openjdk-slim-buster  JAVA_BASE=openjdk:14-jdk-slim-buster  TAGS=jdk14-openjdk-slim-buster
-  - VERSION=9.0.36 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jdk              TAGS=jdk11-openjdk,jdk11           VERSION_ONLY_TAG=true
-  - VERSION=9.0.36 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jdk-slim         TAGS=jdk11-openjdk-slim,jdk11-slim
-  - VERSION=9.0.36 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jdk-hotspot TAGS=jdk11-adoptopenjdk-hotspot
-  - VERSION=9.0.36 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jdk-openj9  TAGS=jdk11-adoptopenjdk-openj9
-  - VERSION=9.0.36 TAG=jdk11-corretto             JAVA_BASE=amazoncorretto:11           TAGS=jdk11-corretto                VARIANT=yum
-  - VERSION=9.0.36 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jdk               TAGS=jdk8-openjdk,jdk8
-  - VERSION=9.0.36 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jdk-slim          TAGS=jdk8-openjdk-slim,jdk8-slim
-  - VERSION=9.0.36 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jdk-hotspot  TAGS=jdk8-adoptopenjdk-hotspot
-  - VERSION=9.0.36 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jdk-openj9   TAGS=jdk8-adoptopenjdk-openj9
-  - VERSION=9.0.36 TAG=jdk8-corretto              JAVA_BASE=amazoncorretto:8            TAGS=jdk8-corretto                 VARIANT=yum
+  - VERSION=9.0.37 TAG=jdk14-openjdk-oracle       JAVA_BASE=openjdk:14-jdk-oracle       TAGS=jdk14-openjdk-oracle          VARIANT=yum
+  - VERSION=9.0.37 TAG=jdk14-openjdk-buster       JAVA_BASE=openjdk:14-jdk-buster       TAGS=jdk14-openjdk-buster
+  - VERSION=9.0.37 TAG=jdk14-openjdk-slim-buster  JAVA_BASE=openjdk:14-jdk-slim-buster  TAGS=jdk14-openjdk-slim-buster
+  - VERSION=9.0.37 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jdk              TAGS=jdk11-openjdk,jdk11           VERSION_ONLY_TAG=true
+  - VERSION=9.0.37 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jdk-slim         TAGS=jdk11-openjdk-slim,jdk11-slim
+  - VERSION=9.0.37 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jdk-hotspot TAGS=jdk11-adoptopenjdk-hotspot
+  - VERSION=9.0.37 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jdk-openj9  TAGS=jdk11-adoptopenjdk-openj9
+  - VERSION=9.0.37 TAG=jdk11-corretto             JAVA_BASE=amazoncorretto:11           TAGS=jdk11-corretto                VARIANT=yum
+  - VERSION=9.0.37 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jdk               TAGS=jdk8-openjdk,jdk8
+  - VERSION=9.0.37 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jdk-slim          TAGS=jdk8-openjdk-slim,jdk8-slim
+  - VERSION=9.0.37 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jdk-hotspot  TAGS=jdk8-adoptopenjdk-hotspot
+  - VERSION=9.0.37 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jdk-openj9   TAGS=jdk8-adoptopenjdk-openj9
+  - VERSION=9.0.37 TAG=jdk8-corretto              JAVA_BASE=amazoncorretto:8            TAGS=jdk8-corretto                 VARIANT=yum
 
-  - VERSION=9.0.36 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jre              TAGS=jre11-openjdk,jre11
-  - VERSION=9.0.36 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jre-slim         TAGS=jre11-openjdk-slim,jre11-slim
-  - VERSION=9.0.36 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jre-hotspot TAGS=jre11-adoptopenjdk-hotspot
-  - VERSION=9.0.36 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jre-openj9  TAGS=jre11-adoptopenjdk-openj9
-  - VERSION=9.0.36 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jre               TAGS=jre8-openjdk,jre8
-  - VERSION=9.0.36 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jre-slim          TAGS=jre8-openjdk-slim,jre8-slim
-  - VERSION=9.0.36 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jre-hotspot  TAGS=jre8-adoptopenjdk-hotspot
-  - VERSION=9.0.36 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jre-openj9   TAGS=jre8-adoptopenjdk-openj9
+  - VERSION=9.0.37 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jre              TAGS=jre11-openjdk,jre11
+  - VERSION=9.0.37 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jre-slim         TAGS=jre11-openjdk-slim,jre11-slim
+  - VERSION=9.0.37 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jre-hotspot TAGS=jre11-adoptopenjdk-hotspot
+  - VERSION=9.0.37 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jre-openj9  TAGS=jre11-adoptopenjdk-openj9
+  - VERSION=9.0.37 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jre               TAGS=jre8-openjdk,jre8
+  - VERSION=9.0.37 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jre-slim          TAGS=jre8-openjdk-slim,jre8-slim
+  - VERSION=9.0.37 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jre-hotspot  TAGS=jre8-adoptopenjdk-hotspot
+  - VERSION=9.0.37 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jre-openj9   TAGS=jre8-adoptopenjdk-openj9
 
-  - VERSION=8.5.56 TAG=jdk14-openjdk-oracle       JAVA_BASE=openjdk:14-jdk-oracle        TAGS=jdk14-openjdk-oracle          VARIANT=yum
-  - VERSION=8.5.56 TAG=jdk14-openjdk-buster       JAVA_BASE=openjdk:14-jdk-buster        TAGS=jdk14-openjdk-buster
-  - VERSION=8.5.56 TAG=jdk14-openjdk-slim-buster  JAVA_BASE=openjdk:14-jdk-slim-buster   TAGS=jdk14-openjdk-slim-buster
-  - VERSION=8.5.56 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jdk               TAGS=jdk11-openjdk,jdk11
-  - VERSION=8.5.56 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jdk-slim          TAGS=jdk11-openjdk-slim,jdk11-slim
-  - VERSION=8.5.56 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jdk-hotspot  TAGS=jdk11-adoptopenjdk-hotspot
-  - VERSION=8.5.56 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jdk-openj9   TAGS=jdk11-adoptopenjdk-openj9
-  - VERSION=8.5.56 TAG=jdk11-corretto             JAVA_BASE=amazoncorretto:11            TAGS=jdk11-corretto                VARIANT=yum
-  - VERSION=8.5.56 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jdk                TAGS=jdk8-openjdk,jdk8             VERSION_ONLY_TAG=true
-  - VERSION=8.5.56 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jdk-slim           TAGS=jdk8-openjdk-slim,jdk8-slim
-  - VERSION=8.5.56 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jdk-hotspot   TAGS=jdk8-adoptopenjdk-hotspot
-  - VERSION=8.5.56 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jdk-openj9    TAGS=jdk8-adoptopenjdk-openj9
-  - VERSION=8.5.56 TAG=jdk8-corretto              JAVA_BASE=amazoncorretto:8             TAGS=jdk8-corretto                 VARIANT=yum
+  - VERSION=8.5.57 TAG=jdk14-openjdk-oracle       JAVA_BASE=openjdk:14-jdk-oracle        TAGS=jdk14-openjdk-oracle          VARIANT=yum
+  - VERSION=8.5.57 TAG=jdk14-openjdk-buster       JAVA_BASE=openjdk:14-jdk-buster        TAGS=jdk14-openjdk-buster
+  - VERSION=8.5.57 TAG=jdk14-openjdk-slim-buster  JAVA_BASE=openjdk:14-jdk-slim-buster   TAGS=jdk14-openjdk-slim-buster
+  - VERSION=8.5.57 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jdk               TAGS=jdk11-openjdk,jdk11
+  - VERSION=8.5.57 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jdk-slim          TAGS=jdk11-openjdk-slim,jdk11-slim
+  - VERSION=8.5.57 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jdk-hotspot  TAGS=jdk11-adoptopenjdk-hotspot
+  - VERSION=8.5.57 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jdk-openj9   TAGS=jdk11-adoptopenjdk-openj9
+  - VERSION=8.5.57 TAG=jdk11-corretto             JAVA_BASE=amazoncorretto:11            TAGS=jdk11-corretto                VARIANT=yum
+  - VERSION=8.5.57 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jdk                TAGS=jdk8-openjdk,jdk8             VERSION_ONLY_TAG=true
+  - VERSION=8.5.57 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jdk-slim           TAGS=jdk8-openjdk-slim,jdk8-slim
+  - VERSION=8.5.57 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jdk-hotspot   TAGS=jdk8-adoptopenjdk-hotspot
+  - VERSION=8.5.57 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jdk-openj9    TAGS=jdk8-adoptopenjdk-openj9
+  - VERSION=8.5.57 TAG=jdk8-corretto              JAVA_BASE=amazoncorretto:8             TAGS=jdk8-corretto                 VARIANT=yum
 
-  - VERSION=8.5.56 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jre              TAGS=jre11-openjdk,jre11
-  - VERSION=8.5.56 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jre-slim         TAGS=jre11-openjdk-slim,jre11-slim
-  - VERSION=8.5.56 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jre-hotspot TAGS=jre11-adoptopenjdk-hotspot
-  - VERSION=8.5.56 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jre-openj9  TAGS=jre11-adoptopenjdk-openj9
-  - VERSION=8.5.56 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jre               TAGS=jre8-openjdk,jre8
-  - VERSION=8.5.56 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jre-slim          TAGS=jre8-openjdk-slim,jre8-slim
-  - VERSION=8.5.56 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jre-hotspot  TAGS=jre8-adoptopenjdk-hotspot
-  - VERSION=8.5.56 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jre-openj9   TAGS=jre8-adoptopenjdk-openj9
+  - VERSION=8.5.57 TAG=jdk11-openjdk              JAVA_BASE=openjdk:11-jre              TAGS=jre11-openjdk,jre11
+  - VERSION=8.5.57 TAG=jdk11-openjdk-slim         JAVA_BASE=openjdk:11-jre-slim         TAGS=jre11-openjdk-slim,jre11-slim
+  - VERSION=8.5.57 TAG=jdk11-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:11-jre-hotspot TAGS=jre11-adoptopenjdk-hotspot
+  - VERSION=8.5.57 TAG=jdk11-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:11-jre-openj9  TAGS=jre11-adoptopenjdk-openj9
+  - VERSION=8.5.57 TAG=jdk8-openjdk               JAVA_BASE=openjdk:8-jre               TAGS=jre8-openjdk,jre8
+  - VERSION=8.5.57 TAG=jdk8-openjdk-slim          JAVA_BASE=openjdk:8-jre-slim          TAGS=jre8-openjdk-slim,jre8-slim
+  - VERSION=8.5.57 TAG=jdk8-adoptopenjdk-hotspot  JAVA_BASE=adoptopenjdk:8-jre-hotspot  TAGS=jre8-adoptopenjdk-hotspot
+  - VERSION=8.5.57 TAG=jdk8-adoptopenjdk-openj9   JAVA_BASE=adoptopenjdk:8-jre-openj9   TAGS=jre8-adoptopenjdk-openj9
 
-  - VERSION=7.0.104 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jdk              TAGS=jdk8-openjdk,jdk8           VERSION_ONLY_TAG=true
-  - VERSION=7.0.104 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jdk-slim         TAGS=jdk8-openjdk-slim,jdk8-slim
-  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jdk-hotspot TAGS=jdk8-adoptopenjdk-hotspot
-  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jdk-openj9  TAGS=jdk8-adoptopenjdk-openj9
-  - VERSION=7.0.104 TAG=jdk8-corretto             JAVA_BASE=amazoncorretto:8           TAGS=jdk8-corretto               VARIANT=yum
+  - VERSION=7.0.105 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jdk              TAGS=jdk8-openjdk,jdk8           VERSION_ONLY_TAG=true
+  - VERSION=7.0.105 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jdk-slim         TAGS=jdk8-openjdk-slim,jdk8-slim
+  - VERSION=7.0.105 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jdk-hotspot TAGS=jdk8-adoptopenjdk-hotspot
+  - VERSION=7.0.105 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jdk-openj9  TAGS=jdk8-adoptopenjdk-openj9
+  - VERSION=7.0.105 TAG=jdk8-corretto             JAVA_BASE=amazoncorretto:8           TAGS=jdk8-corretto               VARIANT=yum
 
-  - VERSION=7.0.104 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jre              TAGS=jre8-openjdk,jre8
-  - VERSION=7.0.104 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jre-slim         TAGS=jre8-openjdk-slim,jre8-slim
-  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jre-hotspot TAGS=jre8-adoptopenjdk-hotspot
-  - VERSION=7.0.104 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jre-openj9  TAGS=jre8-adoptopenjdk-openj9
+  - VERSION=7.0.105 TAG=jdk8-openjdk              JAVA_BASE=openjdk:8-jre              TAGS=jre8-openjdk,jre8
+  - VERSION=7.0.105 TAG=jdk8-openjdk-slim         JAVA_BASE=openjdk:8-jre-slim         TAGS=jre8-openjdk-slim,jre8-slim
+  - VERSION=7.0.105 TAG=jdk8-adoptopenjdk-hotspot JAVA_BASE=adoptopenjdk:8-jre-hotspot TAGS=jre8-adoptopenjdk-hotspot
+  - VERSION=7.0.105 TAG=jdk8-adoptopenjdk-openj9  JAVA_BASE=adoptopenjdk:8-jre-openj9  TAGS=jre8-adoptopenjdk-openj9
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
