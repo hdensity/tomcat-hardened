@@ -34,8 +34,8 @@ for tag in "${TAGLIST[@]}"; do
   tag_and_push "$MAJOR_MINOR-$tag"
   tag_and_push "$MAJOR-$tag"
 
-  # versionless tag for v8.5
-  if [[ $MAJOR_MINOR == "8.5" && -n $tag ]]; then
+  # version-less tag for v9.0
+  if [[ $MAJOR_MINOR == "9.0" && -n $tag ]]; then
     tag_and_push "$tag"
   fi
 done
